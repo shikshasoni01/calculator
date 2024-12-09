@@ -39,6 +39,7 @@
       let expression = document.getElementById("print");
       let key1 = document.getElementsByClassName("key");
       console.log(key1);
+      let expression1 = ""; //for eval function
 
       for (let key of key1) {
         key.addEventListener("click", () => {
@@ -47,25 +48,31 @@
             //removing last character
             let text = expression.textContent;
             text = text.substring(0, text.length - 1);
+            expression1 = text;
+
             expression.textContent = text;
           } else if (key.innerHTML === "AC") {
             expression.innerHTML = "";
           } else if (key.innerHTML === "×") {
             console.log();
-            expression.append("*");
+            expression.append(key.innerHTML);
+            expression1 += "*";
           } else if (key.innerHTML === "÷") {
             console.log();
-            expression.append("/");
+            expression.append(key.innerHTML);
+            expression1 += "/";
           } else if (key.innerHTML === "=") {
             console.log(expression.innerHTML);
-            let a = eval(expression.innerHTML);
+            let a = eval(expression1);
+
             console.log(a);
             expression.innerHTML = a;
+            expression1 = a;
 
             document.getElementById("previousResult").innerHTML = a;
-            //console.log(expression);
           } else {
             expression.append(key.innerHTML);
+            expression1 += key.innerHTML;
           }
         });
       }

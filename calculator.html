@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculator</title>
+    <link rel="stylesheet" href="calculatorstyle.css" />
+  </head>
+  <body>
+    <div class="calculator">
+      <div class="showResult">
+        <label>Previuos Result <span id="previousResult">0</span></label>
+      </div>
+      <div class="calculatorResult">
+        <label id="print">0</label>
+      </div>
+      <div class="calculatorButton">
+        <button class="key" id="additionButton">+</button>
+        <button class="key" id="subtractButton">-</button>
+        <button class="key" id="multiplyButton">&times;</button>
+        <button class="key" id="divisionButton">÷</button>
+        <button class="key" id="k7">7</button>
+        <button class="key" id="k8">8</button>
+        <button class="key" id="k9">9</button>
+        <button class="key" id="k4">4</button>
+        <button class="key" id="k5">5</button>
+        <button class="key" id="k6">6</button>
+        <button class="key" id="k1">1</button>
+        <button class="key" id="k2">2</button>
+        <button class="key" id="k3">3</button>
+        <button class="key" id="k0">0</button>
+        <button class="key" id="kdecimal">.</button>
+        <button class="key" id="kclear">X</button>
+        <button class="key" id="kallclear">AC</button>
+        <button class="key" id="result">=</button>
+      </div>
+    </div>
+    <script>
+      let expression = document.getElementById("print");
+      let key1 = document.getElementsByClassName("key");
+      console.log(key1);
+
+      for (let key of key1) {
+        key.addEventListener("click", () => {
+          if (key.innerHTML === "X") {
+          } else if (key.innerHTML === "AC") {
+            expression.innerHTML = "0";
+          } else if (key.innerHTML === "=") {
+            console.log(expression.innerHTML);
+            let a = eval(expression.innerHTML);
+            console.log(a);
+            expression.innerHTML = a;
+
+            document.getElementById("previousResult").innerHTML = a;
+            //console.log(expression);
+          } else {
+            expression.append(key.innerHTML);
+          }
+        });
+      }
+    </script>
+  </body>
+</html>

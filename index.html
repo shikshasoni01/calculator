@@ -9,10 +9,10 @@
   <body>
     <div class="calculator">
       <div class="showResult">
-        <label>Previuos Result <span id="previousResult">0</span></label>
+        <label>Previuos Result: <span id="previousResult">0</span></label>
       </div>
       <div class="calculatorResult">
-        <label id="print">0</label>
+        <label id="print"></label>
       </div>
       <div class="calculatorButton">
         <button class="key" id="additionButton">+</button>
@@ -42,9 +42,17 @@
 
       for (let key of key1) {
         key.addEventListener("click", () => {
+          console.log(key.innerHTML);
           if (key.innerHTML === "X") {
+            //removing last character
+            let text = expression.textContent;
+            text = text.substring(0, text.length - 1);
+            expression.textContent = text;
           } else if (key.innerHTML === "AC") {
-            expression.innerHTML = "0";
+            expression.innerHTML = "";
+          } else if (key.innerHTML === "×") {
+            console.log();
+            expression.append("*");
           } else if (key.innerHTML === "=") {
             console.log(expression.innerHTML);
             let a = eval(expression.innerHTML);

@@ -30,7 +30,7 @@
         <button class="key" id="k3">3</button>
         <button class="key" id="k0">0</button>
         <button class="key" id="kdecimal">.</button>
-        <button class="key" id="kclear">X</button>
+        <button class="key" id="kclear">C</button>
         <button class="key" id="kallclear">AC</button>
         <button class="key" id="result">=</button>
       </div>
@@ -43,7 +43,7 @@
       for (let key of key1) {
         key.addEventListener("click", () => {
           console.log(key.innerHTML);
-          if (key.innerHTML === "X") {
+          if (key.innerHTML === "C") {
             //removing last character
             let text = expression.textContent;
             text = text.substring(0, text.length - 1);
@@ -53,6 +53,9 @@
           } else if (key.innerHTML === "×") {
             console.log();
             expression.append("*");
+          } else if (key.innerHTML === "÷") {
+            console.log();
+            expression.append("/");
           } else if (key.innerHTML === "=") {
             console.log(expression.innerHTML);
             let a = eval(expression.innerHTML);

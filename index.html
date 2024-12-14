@@ -9,7 +9,8 @@
   <body>
     <div class="calculator">
       <div class="showResult">
-        <label>Previous Result: <span id="previousResult">0</span></label>
+        <label>Previous Result:</label><br />
+        <span id="previousResult">0</span>
       </div>
       <div class="calculatorResult">
         <label id="print"></label>
@@ -53,6 +54,7 @@
             expression.textContent = text;
           } else if (key.innerHTML === "AC") {
             expression.innerHTML = "";
+            expression1 = "";
           } else if (key.innerHTML === "×") {
             console.log();
             expression.append(key.innerHTML);
